@@ -9,7 +9,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vueuse/core": "^10.6.1",
     "monaco-editor": "0.40.0",
+    "pinia": "^2.1.7",
+    "split-grid": "^1.0.11",
+    "split.js": "^1.6.5",
     "vue": "^3.3.4"
   },
   "devDependencies": {
