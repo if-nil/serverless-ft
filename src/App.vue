@@ -1,6 +1,6 @@
 <script setup>
-import MonacoEditor from "./components/MonacoEditor.vue";
-import Panel from "./components/Panel.vue";
+import MonacoEditor from './components/MonacoEditor.vue';
+import Panel from './components/Panel.vue';
 </script>
 
 <template>

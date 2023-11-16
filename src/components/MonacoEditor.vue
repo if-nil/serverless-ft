@@ -1,19 +1,14 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from "vue";
-import { useResizeObserver } from "@vueuse/core";
 
 import * as monaco from "monaco-editor";
 import EditorWorker from "monaco-editor/esm/vs/editor/editor.worker?worker";
 import TSWorker from "monaco-editor/esm/vs/language/typescript/ts.worker?worker";
 
+import { useResizeObserver } from "@vueuse/core";
+
 self.MonacoEnvironment = {
   getWorker(_, label) {
-    // if (label === 'json')
-    //   return new JSONWorker()
-    // if (label === 'css' || label === 'scss' || label === 'less')
-    //   return new CSSWorker()
-    // if (label === 'html' || label === 'handlebars' || label === 'razor')
-    //   return new HTMLWorker()
     if (label === "typescript" || label === "javascript") return new TSWorker();
     return new EditorWorker();
   },
