@@ -27,7 +27,6 @@ serve(async () => {
   )
 })`,
     language: "javascript",
-    automaticLayout: true,
     suggest: {
       preview: true,
     },
@@ -47,12 +46,11 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div id="editor" ref="editor"></div>
+  <div
+    id="editor"
+    ref="editor"
+    class="w-[calc(100%-var(--move-interval))] h-[calc(100%-var(--move-interval))]"
+  ></div>
 </template>
 
-<style scoped>
-#editor {
-  width: calc(100% - var(--move-interval));
-  height: calc(100% - var(--move-interval));
-}
-</style>
+<style scoped></style>
