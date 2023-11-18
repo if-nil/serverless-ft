@@ -32,7 +32,7 @@
 </template>
 
 <script setup>
-import { defineProps, computed, ref, onMounted, onBeforeUnmount } from "vue";
+import { computed, ref } from "vue";
 
 const props = defineProps({
   value: {
@@ -65,7 +65,7 @@ const inputValue = computed({
 });
 
 const icon = computed(() => {
-  if (hasChildren) {
+  if (hasChildren.value === true) {
     return inputValue.value.opened ? props.openIcon : props.closeIcon;
   }
   return inputValue.value.icon !== undefined
@@ -81,7 +81,6 @@ const hasChildren = computed(() => inputValue.value.children?.length > 0);
 
 const click = () => {
   opened.value = !opened.value;
-  console.log(opened.value);
   if ((hasChildren && props.folderCanbeSelected) || !hasChildren) {
     inputValue.value.selected = true;
     emit("nodeSelected", inputValue.value);
