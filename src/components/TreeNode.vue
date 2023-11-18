@@ -1,7 +1,7 @@
 <template>
   <div
     class="tree-node select-none"
-    :class="inputValue.selected ? 'bg-[rgba(117,179,37,_0.2)] text-[#fff]' : ''"
+    :class="inputValue.selected ? 'bg-[rgba(117,179,37,0.2)] text-[#fff]' : ''"
   >
     <div
       class="h-[20px] flex flex-row flex-nowrap items-center pl-0 flex-shrink-0 text-[12px] hover:bg-[rgba(255,255,255,0.05)]"

@@ -1,5 +1,5 @@
 <template>
-  <div class="node-tree">
+  <div class="flex-[1] w-full overflow-auto h-full flex [flex-flow:column]">
     <TreeNode
       v-for="(node, i) in inputValue"
       :key="i"
@@ -62,13 +62,4 @@ const resetSelected = (selectedNode, node) => {
 };
 </script>
 
-<style>
-.node-tree {
-  flex: 1;
-  width: 100%;
-  overflow: auto;
-  height: 100%;
-  display: flex;
-  flex-flow: column;
-}
-</style>
+<style></style>

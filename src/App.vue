@@ -3,8 +3,9 @@ import { ref } from "vue";
 
 import MonacoEditor from "./components/MonacoEditor.vue";
 import NodeTree from "./components/NodeTree.vue";
+import Panel from "./components/Panel.vue";
 
-const val = ref([
+const fileList = ref([
   {
     title: "页面",
     selected: false,
@@ -50,7 +51,7 @@ const val = ref([
   <!-- <MonacoEditor /> -->
   <div style="overflow: hidden">
     <div>
-      <NodeTree :value="val" />
+      <Panel :fileList="fileList" />
     </div>
   </div>
 </template>
