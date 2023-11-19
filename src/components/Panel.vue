@@ -1,6 +1,7 @@
 <script setup>
 import { onMounted, ref } from "vue";
 
+import Log from "./Log.vue";
 import MonacoEditor from "./MonacoEditor.vue";
 import NodeTree from "./NodeTree.vue";
 import Split from "split-grid";
@@ -45,7 +46,9 @@ onMounted(() => {
       <MonacoEditor />
     </div>
     <div class="col-[2/-1] bg-[#eef0f2] [grid-area:2/3/3/4]" ref="div4"></div>
-    <div class="rounded-[5px] bg-[#fdfdfe] [grid-area:3/3/4/4]"></div>
+    <div class="rounded-[5px] bg-[#fdfdfe] [grid-area:3/3/4/4]">
+      <Log />
+    </div>
   </div>
 </template>
 
