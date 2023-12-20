@@ -22,7 +22,7 @@ const editor = ref();
 let editorRef = ref();
 onMounted(() => {
   editorRef = monaco.editor.create(editor.value, {
-    value: `import { serve } from "https://deno.land/std@0.177.1/http/server.ts"
+    value: `import { serve } from "https://deno.land/std/http/server.ts"
 
 serve(async () => {
   return new Response(
