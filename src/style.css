@@ -5,4 +5,5 @@
 body {
   margin: 0;
   --move-interval: 2.5rem;
+  --main-color: #5ab5d7;
 }

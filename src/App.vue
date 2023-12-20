@@ -1,46 +1,53 @@
 <script setup>
-import { ref } from "vue";
+import { ref, h } from 'vue';
 
-import MonacoEditor from "./components/MonacoEditor.vue";
-import NodeTree from "./components/NodeTree.vue";
-import Panel from "./components/Panel.vue";
+import EditorPanel from './components/EditorPanel.vue';
+import { NIcon } from 'naive-ui';
+
+import { Folder, LogoJavascript } from '@vicons/ionicons5';
 
 const fileList = ref([
   {
-    title: "页面",
-    selected: false,
-    isFolder: true,
+    key: '页面',
+    label: '页面',
+    prefix: () =>
+      h(NIcon, null, {
+        default: () => h(Folder),
+      }),
     children: [
       {
-        title: "index.html",
-        selected: false,
-        opened: false,
-        icon: "fas fa-file-code",
+        key: 'index.html',
+        label: 'index.html',
+        prefix: () =>
+          h(NIcon, null, {
+            default: () => h(LogoJavascript),
+          }),
       },
       {
-        title: "product.html",
-        selected: false,
-        opened: false,
-        icon: "fas fa-file-code",
+        key: 'product.html',
+        label: 'product.html',
+        prefix: () =>
+          h(NIcon, null, {
+            default: () => h(LogoJavascript),
+          }),
       },
     ],
   },
   {
-    title: "页面2",
-    selected: false,
-    isFolder: true,
+    key: '页面2',
+    label: '页面2',
+    prefix: () =>
+      h(NIcon, null, {
+        default: () => h(Folder),
+      }),
     children: [
       {
-        title: "index.html",
-        selected: false,
-        opened: false,
-        icon: "fas fa-file-code",
-      },
-      {
-        title: "product.html",
-        selected: false,
-        opened: false,
-        icon: "fas fa-file-code",
+        key: 'index.html',
+        label: 'index.html',
+        prefix: () =>
+          h(NIcon, null, {
+            default: () => h(LogoJavascript),
+          }),
       },
     ],
   },
@@ -48,10 +55,10 @@ const fileList = ref([
 </script>
 
 <template>
-  <!-- <MonacoEditor /> -->
-  <div style="overflow: hidden">
+  <div style="overflow: hidden" class="h-screen">
     <div>
-      <Panel :fileList="fileList" />
+      <!-- <EditorPanel :fileList="fileList" /> -->
+      <Main></Main>
     </div>
   </div>
 </template>

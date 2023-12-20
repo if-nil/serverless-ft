@@ -1,15 +1,19 @@
+<template>
+  <div id="editor" ref="editor" class="w-full h-full"></div>
+</template>
+<style scoped></style>
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from "vue";
+import { ref, onMounted, onBeforeUnmount } from 'vue';
 
-import * as monaco from "monaco-editor";
-import EditorWorker from "monaco-editor/esm/vs/editor/editor.worker?worker";
-import TSWorker from "monaco-editor/esm/vs/language/typescript/ts.worker?worker";
+import * as monaco from 'monaco-editor';
+import EditorWorker from 'monaco-editor/esm/vs/editor/editor.worker?worker';
+import TSWorker from 'monaco-editor/esm/vs/language/typescript/ts.worker?worker';
 
-import { useResizeObserver } from "@vueuse/core";
+import { useResizeObserver } from '@vueuse/core';
 
 self.MonacoEnvironment = {
   getWorker(_, label) {
-    if (label === "typescript" || label === "javascript") return new TSWorker();
+    if (label === 'typescript' || label === 'javascript') return new TSWorker();
     return new EditorWorker();
   },
 };
@@ -26,7 +30,7 @@ serve(async () => {
     { headers: { "Content-Type": "application/json" } },
   )
 })`,
-    language: "javascript",
+    language: 'javascript',
     suggest: {
       preview: true,
     },
@@ -44,13 +48,3 @@ onBeforeUnmount(() => {
   editorObserver?.stop();
 });
 </script>
-
-<template>
-  <div
-    id="editor"
-    ref="editor"
-    class="w-[calc(100%-var(--move-interval))] h-[calc(100%-var(--move-interval))]"
-  ></div>
-</template>
-
-<style scoped></style>
