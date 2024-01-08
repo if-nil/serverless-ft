@@ -1,32 +1,40 @@
 <template>
-  <n-layout has-sider class="h-screen">
-    <!-- 侧边栏 -->
-    <n-layout-sider
-      bordered
-      collapse-mode="width"
-      :collapsed-width="64"
-      :width="180"
-      :collapsed="collapsed"
-      show-trigger
-      @collapse="collapsed = true"
-      @expand="collapsed = false"
-    >
+  <n-layout>
+    <n-layout-header bordered>
       <n-menu
         v-model:value="activeKey"
-        :collapsed="collapsed"
-        :collapsed-width="64"
-        :collapsed-icon-size="22"
-        :options="menuOptions"
+        mode="horizontal"
+        :options="headerMenuOptions"
+        responsive
       />
-    </n-layout-sider>
+    </n-layout-header>
+    <n-layout has-sider>
+      <!-- 侧边栏 -->
+      <n-layout-sider
+        bordered
+        collapse-mode="width"
+        :collapsed-width="64"
+        :width="180"
+        :collapsed="collapsed"
+        show-trigger
+        @collapse="collapsed = true"
+        @expand="collapsed = false"
+      >
+        <n-menu
+          v-model:value="activeKey"
+          :collapsed="collapsed"
+          :collapsed-width="64"
+          :collapsed-icon-size="22"
+          :options="siderMenuOptions"
+        />
+      </n-layout-sider>
 
-    <!-- 多功能框以及代码编辑器 -->
-    <n-layout>
+      <!-- 多功能框以及代码编辑器 -->
       <n-layout-content>
         <n-split
           direction="horizontal"
           class="h-screen"
-          :default-size="0.2"
+          :default-size="0.4"
           :max="1"
           :min="0"
         >
@@ -73,7 +81,7 @@ const fileList = ref([
       }),
     children: [
       {
-        key: 'index.html',
+        key: '页面/index.html',
         label: 'index.html',
         prefix: () =>
           h(NIcon, null, {
@@ -81,7 +89,7 @@ const fileList = ref([
           }),
       },
       {
-        key: 'product.html',
+        key: '页面/product.html',
         label: 'product.html',
         prefix: () =>
           h(NIcon, null, {
@@ -99,7 +107,7 @@ const fileList = ref([
       }),
     children: [
       {
-        key: 'index.html',
+        key: '页面2/index.html',
         label: 'index.html',
         prefix: () =>
           h(NIcon, null, {
@@ -110,11 +118,18 @@ const fileList = ref([
   },
 ]);
 
-const menuOptions = [
+const siderMenuOptions = [
   {
     label: '函数管理器',
     key: 'functions-manager',
     icon: renderIcon(FileTrayFullSharp),
+  },
+];
+
+const headerMenuOptions = [
+  {
+    label: '工作台',
+    key: 'console',
   },
 ];
 onMounted(() => {});

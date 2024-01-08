@@ -1,11 +1,11 @@
 <script setup>
-import Main from './components/Main.vue';
+import EditorPanel from './EditorPanel.vue';
 </script>
 
 <template>
   <div style="overflow: hidden" class="h-screen">
     <div>
-      <Main />
+      <EditorPanel />
     </div>
   </div>
 </template>
