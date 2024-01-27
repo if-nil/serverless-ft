@@ -59,6 +59,7 @@
 <script setup>
 import { ref, h } from 'vue';
 
+import file from '../api/file';
 import Tree from './Tree.vue';
 import { NIcon, NLayout, NLayoutSider, NLayoutContent } from 'naive-ui';
 
@@ -132,5 +133,9 @@ const headerMenuOptions = [
     key: 'console',
   },
 ];
-onMounted(() => {});
+onMounted(() => {
+  file.getFilesList().then((res) => {
+    console.log('获取的文件列表', res);
+  });
+});
 </script>
